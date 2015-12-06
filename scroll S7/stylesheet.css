@@ -1,0 +1,23 @@
+body {
+    padding-top: 20px;
+	background-image:url(header.png);
+}
+
+footer {
+   
+	background-image:url(back2.png);
+}
+
+main{
+	padding:20px;
+	background-image:url(header.png);
+}
+header{
+	background-image:url(back2.png);
+	padding:20px;
+}
+section
+{
+	background-image:url(back2.png);
+	
+}
