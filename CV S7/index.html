@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Mon CV</title>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css" /> <!--lien vers la feuille de style CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> <!--lien vers le CDN de Bootstrap-->
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script> <!--lien vers le fichier jquery pour l'effet "hover"-->
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script> <!--lien vers fichier JQuery pour l'effet filtre-->
+    
+    <script type="text/javascript">
+    $(function () {
+        
+        var filterList = {
+        
+            init: function () {
+            
+                // Plugin Mixitup, qui permet de filtrer les vignettes par cat�gorie
+                $('#portfoliolist').mixitup({
+                    targetSelector: '.portfolio',
+                    filterSelector: '.filter',
+                    effects: ['fade'],
+                    easing: 'snap',
+                    // call the hover effect
+                    onMixEnd: filterList.hoverEffect()
+                });             
+            
+            },
+            
+            hoverEffect: function () {
+            
+                // Fonction pour l'effet "hover"
+                $('#portfoliolist .portfolio').hover(
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                        $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');             
+                    },
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                        $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');                               
+                    }       
+                );              
+            
+            }
+        };
+        
+        // Lance les deux fonctions "hover" et "filtre"
+        filterList.init();
+        
+        
+    }); 
+    </script>
+</head>
+<body>
+
+
+    <header>
+        <div class="row">
+            <div class="image col-md-4">
+                <img src="img/miniprimate.jpg">
+            </div>
+            <div class="entete col-md-8">
+                <h1>Desgourdes Vivien</h1>
+                <h2>Poste recherché: développeur informatique</h2>
+            </div>
+			
+        </div>
+    </header>
+	<hr>
+    
+		<section>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="conteneur">
+                    <h3>Parcours avant la formation Simplonline</h3>
+						<ul><li>Auto-entrepreneur, réparation d'ordinateurs et d'équipements périphériques.</li>
+						<li><abbr title="Certificat d'Aptitude à la Conduite en Sécurité" class="initialism">CACES</abbr> 1, 3 et 5</li>
+						<li>CAP peinture vitrerie revêtements muraux</li>
+						<li>Niveau CAP mécanique automobile</li>
+						<li>Brevet National des Collèges</li>
+						</ul>
+					</div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="conteneur">
+                    <h3>Mes ambitions</h3>
+						<ul><li>Réussir la formation SIMPLONLINE et trouver un emploi pour mettre mes capacités en pratique.</li>
+						<li>Créer une start-up de création de jeux vidéo ou de sites web.</li>
+						</ul>
+					</div>
+            </div>
+            <div class="col-md-4">
+                <div class="conteneur">
+                    <ul><h3>Expérience professionnelle</h3>
+                        <ul><li>Montage d'unité centrale</li>
+						<li>Conseil clientèle</li>
+						<li>Création de réseau domestique</li>
+						<li>Maintenance et entretien</li>
+						<li>Apprentissage des languages informatiques en cours</li>
+					</ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</section>	
+	<hr>
+	<main>
+        <div class="container">
+
+            <h2>Mon portfolio</h2>
+            <!--data-filter permet de filtrer les vignettes par catégorie-->
+            <ul id="filters" class="clearfix row">
+                <li><span class="filter active" data-filter="cat1 cat2 cat3 cat4">Toutes mes catégories</span></li>
+                <li><span class="filter" data-filter="cat1">HTML/CSS</span></li>
+                <li><span class="filter" data-filter="cat2">Javascript</span></li>
+                <li><span class="filter" data-filter="cat3">Bootstrap</span></li>
+                <li><span class="filter" data-filter="cat4">Ruby</span></li>
+				
+            </ul>
+
+            <div id="portfoliolist"> <!--La div qui contient les vignettes des projets-->
+                
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">             
+                        <img src="img/portfolios/logo/5.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Annuaire</a>
+                                <span class="text-category">Javascript</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>              
+               
+                <div class="portfolio cat4" data-cat="cat4">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/card/1.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">API Open Food Facts</a>
+                                <span class="text-category">Ruby</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+                            
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">
+                        <img src="img/portfolios/app/3.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Page de profil</a>
+                                <span class="text-category">HTML/CSS</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>          
+           
+                <div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/app/2.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Page placement div</a>
+                                <span class="text-category">HTML/CSS</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                                                      
+                
+                <div class="portfolio cat4" data-cat="cat4">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/card/2.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Exercice en Ruby</a>
+                                <span class="text-category">Ruby</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>                              
+                                                                                         
+
+                <div class="portfolio cat3" data-cat="cat3">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/icon/1.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Exercice utilisation Bootstrap</a>
+                                <span class="text-category">Bootstrap</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div> 
+                                                                                    
+                <div class="portfolio cat2" data-cat="cat2">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/logo/4.png" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Pierre-Feuille-Ciseau</a>
+                                <span class="text-category">Javascript</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>  
+
+				<div class="portfolio cat1" data-cat="cat1">
+                    <div class="portfolio-wrapper">         
+                        <img src="img/portfolios/card/certificat.jpg" alt="" />
+                        <div class="label">
+                            <div class="label-text">
+                                <a class="text-title">Certificat OpenClassRoom</a>
+                                <span class="text-category">HTML/CSS</span>
+                            </div>
+                            <div class="label-bg"></div>
+                        </div>
+                    </div>
+                </div>     
+          				       
+            </div>
+        
+        </div><!-- container -->
+
+    </main>
+    <hr>
+    <footer>
+		
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2027.593088135243!2d1.9521675149141184!3d46.78627967913879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fa5535aa172de7%3A0x24c58e7d82b1d31c!2s8+Rue+du+Croc%2C+36120+Ambrault!5e1!3m2!1sfr!2sfr!4v1448113210648" width="50%" frameborder="0" style="border:0" allowfullscreen></iframe>
+    	<p>Mes coordonnées :0670094896</p>
+		<a href="mailto:v.desgourdes@orange.fr">v.desgourdes@orange.fr</a>
+	</footer>
+
+</body>
+</html>
